@@ -6,21 +6,15 @@ To see it in action simply open your terminal and execute:
 
 ```
 git clone git@github.com:bboksa/RT-REST.git
+cd RT-REST
 mvn test
 ```
 
-Using it in your own code is just as simple:
+Using it in your own code is just as simple, see
 
-```
-RTTicketRESTDAO dao = new RTTicketRESTDAO();
-// see http://requesttracker.wikia.com/wiki/Demo
-dao.setClient(new RTRESTClient("http://rt.easter-eggs.org/demos/stable/REST/1.0/", "john.foo", "john.foo"));
-try {
-	List<RTTicket> result = dao.findByQuery("Queue = 'Customer Service'", RTRESTClient.TicketSearchResponseFormat.MULTILINE);						
-} catch (Exception ex) {
-	ex.printStackTrace();
-}
-```
+https://github.com/bboksa/RT-REST/blob/master/src/test/java/de/boksa/rt/test/dao/RTTicketRESTDAOTest.java
+
+for a simple demo.
 
 ***
 

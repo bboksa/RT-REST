@@ -10,7 +10,8 @@ public class RTRESTClientTest {
 
 	@Test
 	public void test() throws IOException {		
-		RTRESTClient client = new RTRESTClient("http://rt.easter-eggs.org/demos/stable/REST/1.0/", "john.foo", "john.foo"); // see http://requesttracker.wikia.com/wiki/Demo
+		// for the credentials used see http://requesttracker.wikia.com/wiki/Demo
+		RTRESTClient client = new RTRESTClient("http://rt.easter-eggs.org/demos/stable/REST/1.0/", "john.foo", "john.foo"); 
 		client.searchTickets("Queue = 'Customer Service'", RTRESTClient.TicketSearchResponseFormat.IDONLY);
 		client.login();
 		client.searchTickets("Queue = 'Customer Service'", RTRESTClient.TicketSearchResponseFormat.MULTILINE);

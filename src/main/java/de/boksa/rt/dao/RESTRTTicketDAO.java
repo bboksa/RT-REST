@@ -1,11 +1,10 @@
-package de.boksa.rt.dao.impl;
+package de.boksa.rt.dao;
 
 import java.io.IOException;
 import java.util.List;
 
 import javax.security.auth.login.CredentialException;
 
-import de.boksa.rt.dao.api.RTTicketDAO;
 import de.boksa.rt.model.RTTicket;
 import de.boksa.rt.rest.RTRESTClient;
 import de.boksa.rt.rest.RTRESTClient.TicketSearchResponseFormat;
@@ -13,10 +12,12 @@ import de.boksa.rt.rest.RTRESTResponse;
 import de.boksa.rt.rest.response.parser.MultilineTicketSearchResponseParser;
 import de.boksa.rt.rest.response.parser.TicketSearchResponseParser;
 
-public class RTTicketRESTDAO implements RTTicketDAO {
+public class RESTRTTicketDAO implements RTTicketDAO {
 	
 	private RTRESTClient client;
-		
+	
+	protected RESTRTTicketDAO() { }
+	
 	@Override
 	public RTTicket findById(Long id) throws IOException {
 		// TODO Auto-generated method stub
@@ -64,7 +65,7 @@ public class RTTicketRESTDAO implements RTTicketDAO {
 		}
 	}
 	
-	/* Simple Getter & Setter */
+	// getter and setter methods...
 	public RTRESTClient getClient() {
 		return client;
 	}

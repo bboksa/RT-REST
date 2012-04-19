@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 
 import de.boksa.rt.model.RTTicket;
 import de.boksa.rt.rest.RTRESTResponse;
-import de.boksa.rt.rest.response.parser.processor.api.TicketFieldProcessor;
-import de.boksa.rt.rest.response.parser.processor.api.TicketFieldProcessorRegistry;
+import de.boksa.rt.rest.response.parser.processor.FieldProcessor;
+import de.boksa.rt.rest.response.parser.processor.FieldProcessorRegistry;
 
 public final class MultilineTicketSearchResponseParser implements TicketSearchResponseParser {
 	
@@ -24,6 +24,10 @@ public final class MultilineTicketSearchResponseParser implements TicketSearchRe
 	}
 	
 	
+	private static final String DELIMITER_TICKETS = "\n\n--\n\n";
+	private static final String DELIMITER_TICKET_LINES = "\n";
+	private static final Pattern PATTERN_START_FIELD = Pattern.compile("^(.*?): ?(.*)"); 
+	
 	
 	
 	@Override
@@ -31,13 +35,13 @@ public final class MultilineTicketSearchResponseParser implements TicketSearchRe
 
 		List<Map<String,String>> resultData = new LinkedList<Map<String,String>>();
 		
-		for (String ticketString : response.getBody().split("\n\n--\n\n")) {
+		for (String ticketString : response.getBody().split(DELIMITER_TICKETS)) {
 			Map<String,String> ticketData = new HashMap<String,String>();
 			
 			String fieldName = null;
 			StringBuffer tmp = new StringBuffer();
-			for (String ticketLine : ticketString.split("\n")) {
-				Matcher m = Pattern.compile("^(.*?): ?(.*)").matcher(ticketLine);
+			for (String ticketLine : ticketString.split(DELIMITER_TICKET_LINES)) {
+				Matcher m = PATTERN_START_FIELD.matcher(ticketLine);
 				if (m.matches()) {
 					if (fieldName != null) {
 						ticketData.put(fieldName, tmp.toString());
@@ -72,11 +76,11 @@ public final class MultilineTicketSearchResponseParser implements TicketSearchRe
 	private static RTTicket processTicketData(Map<String,String> ticketData) {
 		RTTicket ticket = new RTTicket();
 		
-		TicketFieldProcessor ticketFieldProcessor = null;
+		FieldProcessor fieldProcessor = null;
 		
 		for (Entry<String,String> e : ticketData.entrySet()) {
-			ticketFieldProcessor = TicketFieldProcessorRegistry.getInstance().getTicketFieldProcessor(ticket, e.getKey());
-			ticketFieldProcessor.process(ticket, e.getKey(), e.getValue());
+			fieldProcessor = FieldProcessorRegistry.getInstance().getTicketFieldProcessor(ticket, e.getKey());
+			fieldProcessor.process(ticket, e.getKey(), e.getValue());
 		}
 		
 		return ticket;

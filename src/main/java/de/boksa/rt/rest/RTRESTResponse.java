@@ -7,7 +7,7 @@ public class RTRESTResponse {
 	private String statusMessage;
 	private String body;
 	
-	/* Simple Getter & Setter */	
+	// getter and setter methods...
 	public String getVersion() {
 		return version;
 	}

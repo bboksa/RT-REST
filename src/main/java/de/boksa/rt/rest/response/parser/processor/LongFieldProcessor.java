@@ -1,9 +1,8 @@
-package de.boksa.rt.rest.response.parser.processor.impl;
+package de.boksa.rt.rest.response.parser.processor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import de.boksa.rt.model.RTTicket;
 
 public class LongFieldProcessor extends AbstractBeanProcessor {
 
@@ -20,10 +19,10 @@ public class LongFieldProcessor extends AbstractBeanProcessor {
 	private static final Pattern PATTERN_LONG = Pattern.compile("^.*?(-??\\d+).*?$");
 	
 	@Override
-	public void process(RTTicket ticket, String ticketFieldName, String ticketFieldValue) {
-		Matcher m = PATTERN_LONG.matcher(ticketFieldValue);
+	public void process(Object ticket, String fieldName, String fieldValue) {
+		Matcher m = PATTERN_LONG.matcher(fieldValue);
 		if (m.matches()) {
-			this.copyProperty(ticket, ticketFieldName, m.group(1));
+			this.copyProperty(ticket, fieldName, m.group(1));
 		}
 	}
 	

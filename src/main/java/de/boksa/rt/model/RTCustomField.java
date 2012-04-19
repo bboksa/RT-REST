@@ -14,7 +14,7 @@ public class RTCustomField {
 		this.setValue(value);
 	}
 	
-	/* Simple Getter & Setter */
+	// getter and setter methods...
 	public String getName() {
 		return name;
 	}
@@ -28,7 +28,7 @@ public class RTCustomField {
 		this.value = value;
 	}
 
-	/* toString */
+	// toString...
 	@Override
 	public String toString() {
 		return "RTCustomField [name=" + name + ", value=" + value + "]";

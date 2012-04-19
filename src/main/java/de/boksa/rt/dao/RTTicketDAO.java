@@ -1,4 +1,4 @@
-package de.boksa.rt.dao.api;
+package de.boksa.rt.dao;
 
 import java.util.List;
 

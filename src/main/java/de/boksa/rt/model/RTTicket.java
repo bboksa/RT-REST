@@ -3,7 +3,8 @@ package de.boksa.rt.model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RTTicket {
+
+public class RTTicket implements RTCustomFieldObject {
 
 	private Long id;
 	private String subject;
@@ -15,7 +16,7 @@ public class RTTicket {
 	}
 	
 	
-	/* Simple Getter & Setter */
+	// getter and setter methods...
 	public Long getId() {
 		return id;
 	}
@@ -41,7 +42,7 @@ public class RTTicket {
 		this.customFields = customFields;
 	}
 
-	/* toString */
+	// toString...
 	@Override
 	public String toString() {
 		return "RTTicket [id=" + id + ", subject=" + subject + ", timeWorked="

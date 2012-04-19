@@ -122,7 +122,7 @@ public class RTRESTClient {
 		return new RTRESTResponse();
 	}
 
-	/* Simple Getter & Setter */
+	// getter and setter methods...
 	public String getRestInterfaceBaseURL() {
 		return restInterfaceBaseURL;
 	}
