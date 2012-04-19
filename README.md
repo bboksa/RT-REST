@@ -12,7 +12,7 @@ mvn test
 
 Using it in your own code is just as simple, see
 
-https://github.com/bboksa/RT-REST/blob/master/src/test/java/de/boksa/rt/test/dao/RTTicketRESTDAOTest.java
+https://github.com/bboksa/RT-REST/blob/master/src/test/java/de/boksa/rt/test/dao/RESTRTTicketDAOTest.java
 
 for a simple demo.
 
