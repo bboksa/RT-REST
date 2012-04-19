@@ -42,10 +42,10 @@ public class TicketFieldProcessorRegistry {
 	
 	
 	public TicketFieldProcessor getTicketFieldProcessor(RTTicket ticket, String ticketFieldName) {
-		Matcher m = RTCustomField.PATTERN_CUSTOM_FIELD_NAME.matcher(ticketFieldName);
-		
 		TicketFieldProcessor ticketFieldProcessor = null;
 		
+		Matcher m = RTCustomField.PATTERN_CUSTOM_FIELD_NAME.matcher(ticketFieldName);
+				
 		if (m.matches()) {
 			ticketFieldProcessor = customFieldProcessors.get(m.group(1));
 			if (ticketFieldProcessor == null) {
