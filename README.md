@@ -9,6 +9,19 @@ git clone git@github.com:bboksa/RT-REST.git
 mvn test
 ```
 
+Using it in your own code is just as simple:
+
+```
+RTTicketRESTDAO dao = new RTTicketRESTDAO();
+// see http://requesttracker.wikia.com/wiki/Demo
+dao.setClient(new RTRESTClient("http://rt.easter-eggs.org/demos/stable/REST/1.0/", "john.foo", "john.foo"));
+try {
+	List<RTTicket> result = dao.findByQuery("Queue = 'Customer Service'", RTRESTClient.TicketSearchResponseFormat.MULTILINE);						
+} catch (Exception ex) {
+	ex.printStackTrace();
+}
+```
+
 ***
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br />
