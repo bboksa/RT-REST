@@ -16,4 +16,4 @@ for a demo.
 
 ***
 
-Copyright 2012 Benjamin Boksa (http://www.boksa.de/), Licensed under the Apache License, Version 2.0. See LICENSE for details.
+Copyright 2012 Benjamin Boksa (http://www.boksa.de/). Licensed under the Apache License, Version 2.0. See LICENSE for details.
