@@ -1,0 +1,125 @@
+=========================================================================
+==  NOTICE file corresponding to section 4(d) of the Apache License,   ==
+==  Version 2.0, in this case for the RT-REST distribution.            ==
+=========================================================================
+
+RT-REST
+Copyright 2012 Benjamin Boksa (http://www.boksa.de/)
+
+This product includes software developed by
+Benjamin Boksa (http://www.boksa.de/).
+
+
+
+=========================================================================
+==  Apache HttpComponents HttpClient Notice                            ==
+=========================================================================
+
+Apache HttpComponents HttpClient
+Copyright 1999-2011 The Apache Software Foundation
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+This project contains annotations derived from JCIP-ANNOTATIONS
+Copyright (c) 2005 Brian Goetz and Tim Peierls. See http://www.jcip.net
+
+
+
+=========================================================================
+==  Apache HttpComponents HttpCore Notice                              ==
+=========================================================================
+
+Apache HttpComponents HttpCore
+Copyright 2005-2010 The Apache Software Foundation
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+
+
+=========================================================================
+==  Commons Logging Notice                                             ==
+=========================================================================
+
+// ------------------------------------------------------------------
+// NOTICE file corresponding to the section 4d of The Apache License,
+// Version 2.0, in this case for Commons Logging
+// ------------------------------------------------------------------
+
+Commons Logging
+Copyright 2001-2007 The Apache Software Foundation
+
+This product includes/uses software(s) developed by 'an unknown organization'
+  - Unnamed - avalon-framework:avalon-framework:jar:4.1.3
+  - Unnamed - log4j:log4j:jar:1.2.12
+  - Unnamed - logkit:logkit:jar:1.0.1
+
+
+
+=========================================================================
+==  Apache Commons Codec Notice                                        ==
+=========================================================================
+
+Apache Commons Codec
+Copyright 2002-2009 The Apache Software Foundation
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+--------------------------------------------------------------------------------
+src/test/org/apache/commons/codec/language/DoubleMetaphoneTest.java contains 
+test data from http://aspell.sourceforge.net/test/batch0.tab.
+
+Copyright (C) 2002 Kevin Atkinson (kevina@gnu.org). Verbatim copying
+and distribution of this entire article is permitted in any medium,
+provided this notice is preserved.
+--------------------------------------------------------------------------------
+
+
+
+=========================================================================
+==  Apache Commons IO Notice                                           ==
+=========================================================================
+
+Apache Commons IO
+Copyright 2001-2008 The Apache Software Foundation
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+
+
+=========================================================================
+==  Apache Commons BeanUtils Notice                                    ==
+=========================================================================
+
+Apache Commons BeanUtils
+Copyright 2000-2008 The Apache Software Foundation
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+
+
+=========================================================================
+==  Apache Commons Lang Notice                                         ==
+=========================================================================
+
+Apache Commons Lang
+Copyright 2001-2008 The Apache Software Foundation
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+
+
+=========================================================================
+==  Apache log4j Notice                                                ==
+=========================================================================
+
+Apache log4j
+Copyright 2010 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
