@@ -30,6 +30,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.params.ClientPNames;
 
 public class RTRESTClient {
 	
@@ -55,7 +59,7 @@ public class RTRESTClient {
 	private String username;
 	private String password;
 	
-	private HttpClient httpClient;
+	private DefaultHttpClient httpClient;
 	
 	public RTRESTClient(String restInterfaceBaseURL, String username, String password) {
 		this.setRestInterfaceBaseURL(restInterfaceBaseURL);
@@ -117,6 +121,14 @@ public class RTRESTClient {
 		
         postRequest.setEntity(postEntity);
         
+		// Explicitly enable handling of authentication automatically
+		this.httpClient.getParams().setParameter(ClientPNames.HANDLE_AUTHENTICATION, true);
+		// Set credentials for the given host:port in advance - the client will use them
+		//  automatically when the server will require authentication
+		this.httpClient.getCredentialsProvider().setCredentials(
+			new AuthScope (postRequest.getURI().getHost(), postRequest.getURI().getPort()), 
+			new UsernamePasswordCredentials(this.getUsername(), this.getPassword()));
+
 		HttpResponse httpResponse = this.httpClient.execute(postRequest);
 		
 		String responseBody = IOUtils.toString(httpResponse.getEntity().getContent(), HTTP.UTF_8);
