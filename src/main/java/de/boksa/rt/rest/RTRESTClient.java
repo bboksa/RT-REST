@@ -54,6 +54,7 @@ public class RTRESTClient {
 	}
 	
 	private static final Pattern PATTERN_RESPONSE_BODY = Pattern.compile("^(.*) (\\d+) (.*)\n((.*\n)*)", Pattern.MULTILINE);
+	private static final String NO_MATCHING_RESULTS = "No matching results";
 		
 	private String restInterfaceBaseURL;
 	private String username;
@@ -135,18 +136,30 @@ public class RTRESTClient {
 				
 		Matcher matcher = PATTERN_RESPONSE_BODY.matcher(responseBody);
 		
+		RTRESTResponse response = new RTRESTResponse();
 		if (matcher.matches()) {
-			RTRESTResponse response = new RTRESTResponse();
+			String body = matcher.group(4).trim();
+			// Check if response is 'No matching results'
+			if (body.startsWith (NO_MATCHING_RESULTS)) {
+				// Signal upper layers of no records are available by setting
+				// response code to -1 and body to actual response from
+				// endpoint
+				response.setStatusCode (-1l);
+				response.setStatusMessage (matcher.group(4).trim());
+				return response;
+			}
 			response.setVersion(matcher.group(1));
 			response.setStatusCode(Long.valueOf(matcher.group(2)));
 			response.setStatusMessage(matcher.group(3));
-			response.setBody(matcher.group(4).trim());
+			response.setBody(body);
 			return response;
 		} else {
-			System.err.println("not matched");
+			// Pattern didn't match - signal upper layers by setting response
+			// code to -1
+			response.setStatusCode (-1l);
+			response.setStatusMessage ("Response body contents - no match");
 		}
-				
-		return new RTRESTResponse();
+		return response;
 	}
 
 	// getter and setter methods...
