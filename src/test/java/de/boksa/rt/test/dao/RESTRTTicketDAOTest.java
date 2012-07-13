@@ -60,7 +60,7 @@ public class RESTRTTicketDAOTest {
 			
 			LOG.debug("Iterating over the resulting POJOs");
 			for (RTTicket ticket : result) {
-				LOG.debug(String.format("   Found ticket: #%s / %s", ticket.getId(), ticket.getSubject()));
+				LOG.debug("   Found ticket: " + ticket.toString());
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
