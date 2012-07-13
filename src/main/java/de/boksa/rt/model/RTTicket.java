@@ -152,7 +152,6 @@ public class RTTicket implements RTCustomFieldObject {
 		return created;
 	}
 	public void setCreated(Date created) {
-		System.out.println ("setCreated");
 		this.created = created;
 	}
 	public Date getStarts() {
