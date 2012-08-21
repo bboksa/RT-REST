@@ -18,6 +18,7 @@ package de.boksa.rt.rest.response.parser.processor;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
+import java.util.Date;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.StringUtils;
@@ -34,6 +35,7 @@ public class FieldProcessorRegistry {
 		this.typeFieldProcessors = new HashMap<Class<?>,FieldProcessor>();
 		
 		this.typeFieldProcessors.put(Long.class, LongFieldProcessor.getInstance());
+		this.typeFieldProcessors.put(Date.class, DateFieldProcessor.getInstance());
 		
 		this.standardFieldProcessors = new HashMap<String,FieldProcessor>();
 		this.customFieldProcessors = new HashMap<String,FieldProcessor>();
