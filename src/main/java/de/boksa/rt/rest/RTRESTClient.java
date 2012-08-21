@@ -34,6 +34,7 @@ import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.params.ClientPNames;
+import org.apache.http.protocol.BasicHttpContext;
 
 public class RTRESTClient {
 	
@@ -61,8 +62,10 @@ public class RTRESTClient {
 	private String password;
 	
 	private DefaultHttpClient httpClient;
+	private BasicHttpContext httpContext;
 	
 	public RTRESTClient(String restInterfaceBaseURL, String username, String password) {
+		this.httpContext = new BasicHttpContext();
 		this.setRestInterfaceBaseURL(restInterfaceBaseURL);
 		this.setUsername(username);
 		this.setPassword(password);
